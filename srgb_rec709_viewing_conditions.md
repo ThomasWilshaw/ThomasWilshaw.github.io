@@ -100,7 +100,12 @@ it's `2.2` EOTF. WE need to figure out what EOTF we need to apply to our Rec.709
 image, that combined with our monitors `2.2` EOTF will equal `2.4` We end up
 with the following equation:
 
-![image](/docs/assets/images/simulate_bt1886_on_srgb.svg)
+![Equation for finding the power required to simulate BT.1886 on a sRGB monitor.
+\\k^{x^{2.2}}=k^{2.4}\\
+k^{2.2x}=k^{2.4} \\
+2.2x=2.4\\
+x=\frac{2.4}{2.2}\\
+x\approx 1.09 ](/docs/assets/images/simulate_bt1886_on_srgb.svg)
 
 Therefore if we encode out Rec.709 image with a power function of `1.09` and 
 push it to a sRGB monitor, it will roughly colourimetrically match displaying 
