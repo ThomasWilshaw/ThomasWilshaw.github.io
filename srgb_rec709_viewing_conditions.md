@@ -100,7 +100,7 @@ it's `2.2` EOTF. WE need to figure out what EOTF we need to apply to our Rec.709
 image, that combined with our monitors `2.2` EOTF will equal `2.4` We end up
 with the following equation:
 
-![image](/assets/images/simulate_bt1886_on_srgb.svg)
+![image](/docs/assets/images/simulate_bt1886_on_srgb.svg)
 
 Therefore if we encode out Rec.709 image with a power function of `1.09` and 
 push it to a sRGB monitor, it will roughly colourimetrically match displaying 
