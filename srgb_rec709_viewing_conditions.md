@@ -109,8 +109,7 @@ Therefore if we encode out Rec.709 image with a power function of `1.09` and
 push it to a sRGB monitor, it will roughly colourimetrically match displaying 
 the Rec.709 image on a true BT.1886 monitor. A simple way to remember this is:
 
-$x = \frac{power_{required}}{power_{monitor}}$
-
+$$x = \frac{power_{required}}{power_{monitor}}$$
 
 [^sRGB]: https://www.color.org/srgb04.xalter
 [^Rec709]: https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
