@@ -12,9 +12,9 @@ domain uniform tristimulus image) the short answer is:
     1. Encode with the two part OETF
     2. Display on a monitor with a `2.2` power function EOTF in a dim surround
 
-- **Rec.709**[^Rec.709]:
+- **Rec.709[^Rec.709]**:
     1. Encode with the two part OETF
-    2. Display on a monitor with a `2.4` power function (BT.1886[^BT.1886]) in a dark 
+    2. Display on a monitor with a `2.4` power function (BT.1886 [^BT.1886]) in a dark 
        surround
 
 That is the correct way to view images. However as most images are generally not
@@ -113,6 +113,6 @@ $x = \frac{power_{required}}{power_{monitor}}$
 
 
 [^sRGB]: https://www.color.org/srgb04.xalter
-[^Rec.709]:https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
+[^Rec.709]: https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
 [^BT.1886]: https://www.itu.int/rec/R-REC-BT.1886-0-201103-I/en
 [^OCIO]: https://opencolorio.org/
