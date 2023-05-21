@@ -1,24 +1,24 @@
 # "Correct" sRGB and Rec.709 Viewing
 
-A lot of confusion has been generated surrounding the proper way to display 
-Rec.709 and sRGB images. To clarify my own thoughts and hopefully help others
+There is a lot of confusion surrounding the proper way to display 
+Rec.709 and sRGB images and to clarify my own thoughts and hopefully help others
 I've outlined my understanding below. Be warned, I am no expert here and if you
 see errors please do inform me. 
 
 To view images strictly per specification (assuming you're starting from open 
 domain uniform tristimulus image) the short answer is:
 
-- **sRGB:**
+- **sRGB[^sRGB]:**
     1. Encode with the two part OETF
     2. Display on a monitor with a `2.2` power function EOTF in a dim surround
 
-- **Rec.709**:
+- **Rec.709**[^Rec.709]:
     1. Encode with the two part OETF
-    2. Display on a monitor with a `2.4` power function (BT.1886) in a dark 
+    2. Display on a monitor with a `2.4` power function (BT.1886[^BT.1886]) in a dark 
        surround
 
-That is the correct way to view images. However as most images are not viewed
-under ideal circumstances things get a little more complicated
+That is the correct way to view images. However as most images are generally not
+viewed under ideal circumstances things get a little more complicated
 
 ## Implicit vs Explicit Management
 
@@ -27,7 +27,7 @@ management, every step of the workflow is (to quote Merriam-Webster) "fully
 revealed or expressed without vagueness". Well in theory at least. Images are
 generally decoded into some working space and then pushed through various
 technical and creative transforms onto a display. This is often implemented via
-OCIO for example.
+OpenColorIO [^OCIO] for example.
 
 Before this a much simpler system was used, an image would be encoded with a
 Opto-Electronic Transfer Curve (OETF) such as Rec.709 and then displayed on a
@@ -67,7 +67,7 @@ environment one would view sRGB content in.
 canonical EOTF was decided on for Rec.709 (BT.1886 with a `2.4` power function).
 This is potentially where the confusion came from as in that intervening decade
 vast amounts of of video was encoded in Rec.709 but viewed under a sRGB
-compliant monitor. The sRGB spec in fact has a whole annex (Annex B) on
+compliant monitor. The sRGB specification in fact has a whole annex (Annex B) on
 compatibility with Rec.709 and states that:
 >
 > *"This sRGB standard provides a clear and well-defined reference display for
@@ -84,19 +84,17 @@ the appropriate EOTF, as summarised below:
 | Average | 2.0 | Rarely used |
 | Bright | 1.0| Rarely used |
 
-The only correct way to view sRGB however is using a 2.2 EOTF as per the
-specification
+Whilst the only correct way to view sRGB is using a 2.2 EOTF as per the
+specification it does not seem unreasonable to suggest that if you know the 
+expected viewing conditions of your image it may prudent to use a different 
+power law to compensate.
 
 ## Implementing An Implicit System Explicitly
 
 As I mentioned earlier it is possible to simulate any of these EOTFs even if you
-are stuck with, for example, sRGB monitor. Given we know our monitor is going to
-force a `2.2` power on us we can calculate what power we need to encode our 
-image with to generate a specific output power.
-
-Lets say we want to view a Rec.709 signal under a BT.1886 EOTF as we are in a 
+are stuck with, for example, sRGB monitor. Lets say we want to view a Rec.709 signal under a BT.1886 EOTF as we are in a 
 dark surround (say a grading suite) but we are stuck with an sRGB monitor and 
-it's `2.2` EOTF. WE need to figure out what EOTF we need to apply to our Rec.709
+it's `2.2` EOTF. We need to figure out what EOTF we need to apply to our Rec.709
 image, that combined with our monitors `2.2` EOTF will equal `2.4` We end up
 with the following equation:
 
@@ -109,4 +107,12 @@ x\approx 1.09 ](/docs/assets/images/simulate_bt1886_on_srgb.svg)
 
 Therefore if we encode out Rec.709 image with a power function of `1.09` and 
 push it to a sRGB monitor, it will roughly colourimetrically match displaying 
-the Rec.709 image on a true BT.1886 monitor.
+the Rec.709 image on a true BT.1886 monitor. A simple way to remember this is:
+
+$x = \frac{power_{required}}{power_{monitor}}$
+
+
+[^sRGB]: https://www.color.org/srgb04.xalter
+[^Rec.709]:https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
+[^BT.1886]: https://www.itu.int/rec/R-REC-BT.1886-0-201103-I/en
+[^OCIO]: https://opencolorio.org/
