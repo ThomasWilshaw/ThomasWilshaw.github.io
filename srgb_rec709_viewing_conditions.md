@@ -9,8 +9,9 @@ To view images strictly per specification (assuming you're starting from open
 domain uniform tristimulus image) the short answer is:
 
 - **sRGB[^sRGB]:**
-    1. Encode with the two part OETF
+    1. Encode with the two part OETF (Section 5.2 of the specification)
     2. Display on a monitor with a `2.2` power function EOTF in a dim surround
+    (Section 4 of the specification)
 
 - **Rec.709[^Rec709]**:
     1. Encode with the two part OETF
@@ -49,7 +50,7 @@ light bouncing of the screen (viewing flare) causes the image to appear to have
 much lower contrast.
 
 This is where the OETF/EOTF mismatch comes in, the slight difference between
-the two functions causes a small change in contrast and hue which neatly
+the two functions causes a small change in hue, contrast and chroma which neatly
 adapts the image for the viewing conditions. 
 
 The Rec.709 specification only defines an OETF and
@@ -116,7 +117,13 @@ the Rec.709 image on a true BT.1886 monitor. A simple way to remember this is:
 
 
 
-[^sRGB]: https://www.color.org/srgb04.xalter
+[^sRGB]: Whilst the sRGB specification is officially only available for purchase
+from the IEC online store it can be found elsewhere with some creative searching
+. The following link however, gives a good overview of the details https://www.color.org/srgb04.xalter . Wikipedia incorrectly (in my view) states that the EOTF 
+should be the inverse of the to part function and references an article on the
+wonderful [Colour Science](https://www.colour-science.org/posts/srgb-eotf-pure-gamma-22-or-piece-wise-function/) website and whilst I'm wary to
+argue with someone far more informed than myself I think in this case they are
+wrong
 [^Rec709]: https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
 [^BT1886]: https://www.itu.int/rec/R-REC-BT.1886-0-201103-I/en
 [^OCIO]: https://opencolorio.org/
