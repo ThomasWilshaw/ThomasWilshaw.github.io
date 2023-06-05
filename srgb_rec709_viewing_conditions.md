@@ -117,13 +117,7 @@ the Rec.709 image on a true BT.1886 monitor. A simple way to remember this is:
 
 
 
-[^sRGB]: Whilst the sRGB specification is officially only available for purchase
-from the IEC online store it can be found elsewhere with some creative searching
-. The following link however, gives a good overview of the details https://www.color.org/srgb04.xalter . Wikipedia incorrectly (in my view) states that the EOTF 
-should be the inverse of the to part function and references an article on the
-wonderful [Colour Science](https://www.colour-science.org/posts/srgb-eotf-pure-gamma-22-or-piece-wise-function/) website and whilst I'm wary to
-argue with someone far more informed than myself I think in this case they are
-wrong
+[^sRGB]: Whilst the sRGB specification is officially only available for purchase from the IEC online store it can be found elsewhere with some creative searching. The following link however, gives a good overview of the details https://www.color.org/srgb04.xalter . Wikipedia incorrectly (in my view) states that the EOTF should be the inverse of the to part function and references an article on the wonderful [Colour Science](https://www.colour-science.org/posts/srgb-eotf-pure-gamma-22-or-piece-wise-function/) website and whilst I'm wary to argue with someone far more informed than myself I think in this case they are wrong
 [^Rec709]: https://www.itu.int/rec/R-REC-BT.709-6-201506-I/en
 [^BT1886]: https://www.itu.int/rec/R-REC-BT.1886-0-201103-I/en
 [^OCIO]: https://opencolorio.org/
