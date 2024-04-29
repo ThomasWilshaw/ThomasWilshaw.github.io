@@ -66,7 +66,9 @@ Whilst the density steps are themselves interesting we are more interested in
 the transmittance of the film, how it affects light  projected through it. 
 Calculating transmittance from density is relatively straight forward:
 
-$$transmittance = \frac{1}{10^{density}}$$
+```math
+transmittance = \frac{1}{10^{density}}$$
+```
 
 If we apply the above formula to our data sets we get the follwoing charts:
 
