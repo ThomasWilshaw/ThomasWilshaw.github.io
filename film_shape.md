@@ -1,8 +1,34 @@
 # Exploring the shape of film
 
+I'm currently working on a film project that was shot on Ektachrome S16mm film
+and I have been trying ot figure out how to handle digital post production. The
+directors inital plan was create a single master release print cut from the 
+original negative which could then be projected to get the full effect and 
+look of a film shot on reversal film. However this quickly became inpracticle
+and it was decided we would do a complete scan of the film and do digital post production.
+
+To the best of my knowledge there hasn't been a full feature film shot of 
+Ektachrome and finished digitally (Poor Things shot several scenes on 35mm
+Ektachrome and ingested that into their pipeline) so the question became how
+do we handle grading am already fully formed image?
+
+Due to budget constraints the film was scanned on a Filmfabriek HDS+ scanner 
+and whilst this gave reasonably quality results the colour left a lot to be 
+desired and seemd to be missing a lot of the colourfulness and punchness 
+inherant in Ektachrome. As it turned out however, a friend happened to be 
+experimenting modelling with modeeling film print papers and with a lot of help 
+from him I was able to use his techniques to model the Ektachrome film purley 
+from the data sheet.
+
+The overall approach is to model the film as seen by the Standard Observer and
+as seen by the scanner and then use the information to come up with a way to 
+push the scanned files towards the "correct" look either visual and 
+aesthetically or analytically. The results have so far been very promising and 
+whilst I can't share any test images I will try to explain the process here.
+
 ## Denisty curves
-This process begins with the dye curves found in most film data sheets (example 
-below is Kodak Ektachrome 100D). These show the reposonse of the three seperate dyes
+We begin with the dye curves found in most film data sheets (the example below 
+is Kodak Ektachrome 100D). These show the reposonse of the three seperate dyes
 (Yellow, Magenta and Cyan) to light from the visible spectrum as well as a 
 combined response to form a neutral density. IT is worth noting that the curves
 in these data sheets are usually low quality/precision and only really give a
@@ -81,7 +107,41 @@ viewing.
 ![Ecktachrome sweep matrixewd to Rec.709](/docs/assets/images/ektachrome_1931_rec709_artificial.jpg)
 ![Ecktachrome achromatic sweep](/docs/assets/images/ektachrome_1931_achromatic_artificial.jpg)
 
+## Verifying the model
+As a quick test to make sure our modelling wasn't completely off we took some
+spectral data form an IT8 chart that had been formed on the same film stock and
+created the corresponding set of patches. These wre then plotted on the CIE xy 
+chart and matched our synthetic data extreamly well.
 
+![A simulated IT8 chart printed on Ektachrome](/docs/assets/images/IT8_rec709_artificial.jpg)
+![Simulated IT8 chart plotted on the CIE xy chart](/docs/assets/images/IT8_CIE_xy.jpg) 
+
+
+## Modelling the Scanner response
+The next step is to repeat all of the above but use what I am calling the 
+scanner observer rather than the CIE Standard Observer. To do that I took the 
+spectral power distribution of the LEDs used in the scanner backlight and the
+spectral response curve of the scanners camera and convolved them together to
+form the scanner observer. I could then generate the same set sweeps as before
+and compare them to the Ektachrome.
+
+![The noramlised spectral response curves of the scanners camera](/docs/assets/images/scanner_normalised_response.jpg)
+![The red, grenn and blue LED spectral power distributions](/docs/assets/images/scanner_led_spd.jpg)
+![The scanner camera responses convolved with a synthetic achromatic backlight generated from the RGB LEDs](/docs/assets/images/scanner_led_convolved.jpg)
+
+Below is the resultant sweep. You can seethe muted colours, particullalry
+in the red and blue areas, that are apparent in the raw film scans.
+
+![The generated sweep of Ektachrome as observed by the scanner.](/docs/assets/images/ektachrome_scanner_rec709_artificial.jpg)
+
+
+Given the scanner has no gamut we decided to interpret the results as Rec.2020 
+and work from there. Using a hue matrix, an inset matrix and some tetrahedral 
+interpolation we were able to get a reasonable match between the two. I ran 
+some test images through this and with a few tweaks got some very impressive 
+results, a lot of the missing punchiness and colour contrast that was the 
+original reason for choosing the film had returned. Hopefully this will make a 
+good basis for the final grading of the film.
 
 
 
