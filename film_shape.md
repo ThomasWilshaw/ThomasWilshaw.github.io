@@ -109,6 +109,10 @@ viewing.
 ![Ecktachrome sweep matrixewd to Rec.709](/docs/assets/images/ektachrome_1931_rec709_artificial.jpg)
 ![Ecktachrome achromatic sweep](/docs/assets/images/ektachrome_1931_achromatic_artificial.jpg)
 
+And here is the film hull compared to the Rec.709 gamut.
+
+![Film gamut compared to the Rec.709 cube](/docs/assets/images/ektachrom_rec709_compare.gif)
+
 ## Verifying the model
 As a quick test to make sure our modelling wasn't completely off we took some
 spectral data from an IT8 chart that had been formed on the same film stock and
