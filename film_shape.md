@@ -1,10 +1,10 @@
 # Exploring the shape of film
 
 I'm currently working on a film project that was shot on Ektachrome S16mm film
-and I have been trying ot figure out how to handle digital post production. The
+and I have been trying to figure out how to handle digital post production. The
 directors inital plan was create a single master release print cut from the 
 original negative which could then be projected to get the full effect and 
-look of a film shot on reversal film. However this quickly became inpracticle
+look of a film shot on reversal. However this quickly became impracticle
 and it was decided we would do a complete scan of the film and do digital post production.
 
 To the best of my knowledge there hasn't been a full feature film shot of 
@@ -28,17 +28,17 @@ whilst I can't share any test images I will try to explain the process here.
 
 ## Denisty curves
 We begin with the dye curves found in most film data sheets (the example below 
-is Kodak Ektachrome 100D). These show the reposonse of the three seperate dyes
-(Yellow, Magenta and Cyan) to light from the visible spectrum as well as a 
-combined response to form a neutral density. IT is worth noting that the curves
+is Kodak Ektachrome 100D). These show the response of the three seperate dyes
+(yellow, magenta and cyan) to light from the visible spectrum as well as a 
+combined response that forms a neutral density. It is worth noting that the curves
 in these data sheets are usually low quality/precision and only really give a
-sense of the general shape and relationship between the three dyes. YOu can see 
+sense of the general shape and relationship between the three dyes. You can see 
 that the magenta dye has a small hump at around 450nm which is probably the 
-reulst of joining multiple data sets or a computation error somewhere. Neither
-do they tell us anything about the reposnse of the dyes to wavelengths of light
+result of joining multiple data sets or a computation error somewhere. Neither
+do they tell us anything about the response of the dyes to wavelengths of light
 outside the visible spectrum which could have an affect in certain conditions
 (for example shots with a lot of UV light from atmospheric haze). However for 
-the majority of genral cases this is plenty of data to be going with.
+the majority of general cases this is plenty of data to be going with.
 
 ![Dye curves for Ektachrome 100D](/docs/assets/images/ektachrome_100D.jpg)
 
@@ -63,7 +63,7 @@ seven dyes (real and synthetic) at a selction of density steps.
 
 ## Transmitatnce steps
 Whilst the density steps are themselves interesting we are more interested in
-the transmittance of the film, how it affects light  projected through it. 
+the transmittance of the film, how it affects light projected through it. 
 Calculating transmittance from density is relatively straight forward:
 
 ```math
@@ -76,9 +76,9 @@ If we apply the above formula to our data sets we get the follwoing charts:
 ![Transmittance steps of the generated red, green and blue dyes.](/docs/assets/images/RGB_transmittance_steps.jpg)
 ![Transmittacne stesp of the generated archomtic dye](/docs/assets/images/achromatic_transmittance_steps.jpg)
 
-These are much more interestign and tell us alot about the colour fidelity of 
+These are much more interesting and tell us a lot about the colour fidelity of 
 the film at different wavelenghts and densities. For example we can see that
-the magenta dye varies it's transmittance a lot at different densities
+the magenta dye varies its transmittance a lot at different densities
 implying we can expect a lot of colour fidelity in those hues, whereas the
 yellows transmitte virtually everything from 560nm onwards and are mostly defined by
 how much blue they contain.  We can also see that whilst the acrhomatic curve is
@@ -92,18 +92,18 @@ begin to get a sense of it's overall shape and specifc hue flights. The
 following charts were plotted in Nuke with Jed Smith's `nuke-colortools`[^jed_smith]
 and have have all been calculated with the CIE Standard Observer CMFs and 
 Illuminate E (uniform spectra) for simplicity. I have also included the Rec.709
-gamut for refernce.
+gamut for reference.
 
 ![Hue flights of Ektachrome 100D plotted on the CIE xy chart. Also includes Rec.709 gamut fro reference](/docs/assets/images/ektachrome_hue_flights_xyz.jpg)
 
 I also moved all the calculations from Excel to Python which allowed me to
-generate a mcuh denser data set which provided the following output.
+generate a much denser data set which provided the following output.
 
 ![Hue flights of Ektachrome 100D plotted on the CIE xy chart. Also includes Rec.709 gamut fro reference](/docs/assets/images/ektachrome_hue_flights_xyz_dense_data_set.jpg)
 
 ![Animated 3D plot of the Ektachrome 100D CIE xyz data](/docs/assets/images/ektachrome_100D_ciexyz.gif)
 
-And here are the generated colour andachomatic sweeps matrixed into Rec.709 for 
+And here are the generated colour and achromatic sweeps matrixed into Rec.709 for 
 viewing.
 
 ![Ecktachrome sweep matrixewd to Rec.709](/docs/assets/images/ektachrome_1931_rec709_artificial.jpg)
@@ -111,16 +111,16 @@ viewing.
 
 ## Verifying the model
 As a quick test to make sure our modelling wasn't completely off we took some
-spectral data form an IT8 chart that had been formed on the same film stock and
+spectral data from an IT8 chart that had been formed on the same film stock and
 created the corresponding set of patches. These wre then plotted on the CIE xy 
-chart and matched our synthetic data extreamly well.
+chart and matched our synthetic data extremly well.
 
 ![A simulated IT8 chart printed on Ektachrome](/docs/assets/images/IT8_rec709_artificial.jpg)
 ![Simulated IT8 chart plotted on the CIE xy chart](/docs/assets/images/IT8_CIE_xy.jpg) 
 
 
 ## Modelling the Scanner response
-The next step is to repeat all of the above but use what I am calling the 
+The next step is to repeat all of the above but use what we call the 
 scanner observer rather than the CIE Standard Observer. To do that I took the 
 spectral power distribution of the LEDs used in the scanner backlight and the
 spectral response curve of the scanners camera and convolved them together to
