@@ -91,7 +91,7 @@ caused by the original graph from the data sheet being inaccurate, and it would
 be interesting to try artificially raising the density of the yellow dye ever so
 slightly to get some variation here. 
 
-## CIE xy plots
+## The Shape of Film
 Now that we have a whole range of spectral data for the film at a variety of
 density steps we can plot the hull of the film's gamut on the CIE xy chart and
 begin to get a sense of its overall shape and specific hue flights. The 
@@ -102,8 +102,38 @@ gamut for reference.
 
 ![Hue flights of Ektachrome 100D plotted on the CIE xy chart. Also includes Rec.709 gamut for reference](/docs/assets/images/ektachrome_hue_flights_xyz.jpg)
 
+The above chart shows the six primary transmittance curves from before and
+some interpolated in between curves plotted on the CIE xy chart (in much smaller
+density increments than the Excel curves from before). Each point on each of the 
+eighteen hue lines is the same transmittance curve at different density values
+with Dmax at the extremities and Dmin in the center. This highlights several
+very important factors that make film so spceical.
+
+Firstly it shows how film has what could be called "moving primaries". As the 
+exposure increases the dyes deplete and move towards DMin, the size
+and shape of the film's gamut changes dramtically, and it gracefully attenuates
+to the acrhomatic point. You can also see this in the transmittance graphs, as
+the densities decrease all the dyes tend toward a flat pass filter. One way to
+visualise this is to imagine drawing a line connecting corresponding density
+points on each curve. The set of shrinking polygons this would make is an
+approxiamtion of the gamut at each density step. As the size of the available
+gamut shrinks the reproducible chrominance gets smaller and smaller meaning even
+a very bright red laser would ulitmaltely only produce a fairly desaturated red.
+
+Secondly the plot shows the hue flights of the film, as the density of each dye
+changes its hue does not follow a straght line through the CIE xyY space but 
+rather twists one way or another. We can see for example that both greens and
+reds push toward yellow in the midtones whereas the blues are much less
+disturbed.
+
+All film stocks exhibite these two features and this is part of what gives each 
+stock its own unique look and feel.
+
+## Further visulisations
+
 I also moved all the calculations from Excel to Python which allowed me to
-generate a much denser data set which provided the following output.
+generate a much denser data set and get a better look at the overall hull of the
+film.
 
 ![Hue flights of Ektachrome 100D plotted on the CIE xy chart. Also includes Rec.709 gamut for reference](/docs/assets/images/ektachrome_hue_flights_xyz_dense_data_set.jpg)
 
@@ -115,15 +145,17 @@ viewing.
 ![Ektachrome sweep matrixed to Rec.709](/docs/assets/images/ektachrome_1931_rec709_artificial.jpg)
 ![Ektachrome achromatic sweep](/docs/assets/images/ektachrome_1931_achromatic_artificial.jpg)
 
-And here is the film hull compared to the Rec.709 gamut.
+And here is the film hull compared to the Rec.709 gamut. You can again see the slightly suspect looking yellows which do not conform to the overall closed volume one would intuatively expect. 
 
 ![Film gamut compared to the Rec.709 cube](/docs/assets/images/ektachrom_rec709_compare.gif)
 
-## Verifying the model
+## Verifying the Model
 As a quick test to make sure our modelling wasn't completely off we took some
 spectral data from an IT8 chart that had been formed on the same film stock and
 created the corresponding set of patches. These were then plotted on the CIE xy 
-chart and matched our synthetic data extremely well.
+chart and matched our synthetic data extremely well. You can see how the dyes
+appear to follwo roughly the same hue flights and at DMax reach similaly far 
+the CIE xy space. 
 
 ![A simulated IT8 chart printed on Ektachrome](/docs/assets/images/IT8_rec709_artificial.jpg)
 ![Simulated IT8 chart plotted on the CIE xy chart](/docs/assets/images/IT8_CIE_xy.jpg) 
@@ -141,19 +173,56 @@ and compare them to the Ektachrome.
 ![The red, grenn and blue LED spectral power distributions](/docs/assets/images/scanner_led_spd.jpg)
 ![The scanner camera responses convolved with a synthetic achromatic backlight generated from the RGB LEDs](/docs/assets/images/scanner_led_convolved.jpg)
 
-Below is the resultant sweep. You can see the muted colours, particullalry
-in the red and blue areas, that are apparent in the unprocessed film scans.
+Below is the resultant sweep (right) compared to the one generated with the 
+Standard Observer (left). 
 
-![The generated sweep of Ektachrome as observed by the scanner.](/docs/assets/images/ektachrome_scanner_rec709_artificial.jpg)
+![The generated sweep of Ektachrome as observed by the scanner (right) compared to the sweep generated using the Standard Observer.](/docs/assets/images/standard_vs_scanner_observer.jpg)
 
+It is immeadiately obvious that the two are very different looking, for example:
+
+- The reds are very flat and are much more of a drab brown colour
+- The greens and blues appear to be roughly the correct hue but are a lot less
+deep and pure
+- The yellow and purple tones are practically none existant
+- The rate of change of attenuation is much slower in the scanenr observer sweep
+- The scanenr observer sweep is missing the hue flights of the mixtures, e.g.
+the green/yellow mixtures push toward yellow as the density reduces, as do the
+red/yellows in the Standard Observer sweep.
+
+All this leads to an image that feels muchless contrasty and is missing all lot
+of the subtleties and textures apparent when looking at the film on a light box.
+Whilst I can't currently show any exmaple frames here it is very interesting to 
+note that the scanned frames exhibit exactly the same issues we can see here 
+(minus the green cast as I suspect the scanner camera white balances that out).
+
+## Correction
 
 Given the scanner has no gamut we decided to interpret the results as Rec.2020 
 and work from there. Using a hue matrix, an inset matrix and some tetrahedral 
 interpolation we were able to get a reasonable match between the two. I ran 
-some test images through this and with a few tweaks got some very impressive 
+various test images through this and with a few tweaks got some very impressive 
 results, a lot of the missing punchiness and colour contrast that was the 
-original reason for choosing the film had returned. Hopefully this will make a 
-good basis for the final grading of the film.
+original reason for choosing the film had returned. The main issue currently are
+the yellow hues, they are coming out extreamly saturated and bright. Whilst this
+is an issue it is pleasing that this is probably the same issue we were able to 
+identify earlier on in the transmittance graphs. 
+
+Whilst there is still much work to do and corrections to make this will
+hopefully make a good basis for the final grading of the film.
+
+## Further Work
+
+There are a few issues with the above method that I would like to experiment
+with further. Firstly, as discussed, the troublesome yellows. Secondly the 
+generated data and sweeps are, for some reason, very lacking in the subtractive
+primaries. I suspect this is because the sweeps are generated in the density 
+space and then converted to transmittance and this is simply a fall out of that
+order of operations. I'm hopefull that generating the sweeps in transmittance 
+instead will solve this problem. Finally, this method does not model or take
+onto account dye mixtures not on the hull (i.e. mixtures of all three dyes) which
+could lead to blind spots in the data and problems when we try to match the
+scanner observer sweeps, not to mention cause us to miss interesting insights 
+into the hue flights of the mixtures of the three dyes.
 
 
 [^ekatachrome_wikipedia]: https://en.wikipedia.org/wiki/Ektachrome#Usage_for_motion_pictures
