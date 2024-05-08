@@ -71,7 +71,8 @@ However, we are more interested in the transmittance of the film, which is to
 say how it affects light projected through it. Calculating transmittance from
 density is straightforward:
 
-$$transmittance = \frac{1}{10^{density}}$$
+![Equation to calculate transmittance from density.\\
+transmittance = \frac{1}{10^{density}}](/docs/assets/images/transmittance_from_density.svg)
 
 If we apply the above formula to our data sets we get the following charts:
 
