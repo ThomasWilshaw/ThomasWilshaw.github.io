@@ -44,7 +44,7 @@ film (motion picture stock, stills stock, marketing etc.) all have slightly
 different curves and mismatched axis. However, for the majority of general cases
 this is plenty of data to be going with.
 
-![Dye curves for Ektachrome 100D](/docs/assets/images/ektachrome_100D.jpg)
+![Dye curves for Ektachrome 100D](/docs/assets/images/ektachrome_100D.jpg "Dye curves for Ektachrome 100D")
 
 ## Density steps
 The curves given above are normalised response curves which means they have been
