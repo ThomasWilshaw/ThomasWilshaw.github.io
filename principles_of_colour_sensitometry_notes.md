@@ -1,6 +1,6 @@
 # Notes from "Principles of Colour Sensitometry"
 
-## Introduction
+## 1. Introduction
 
 The measurement of film must result in the quantitive knowledge of:
 - the characteristics of materials in use
@@ -47,3 +47,48 @@ There are many procedures but the common one is as follows:
 2. Sample is processed 
 3. Resulting image is processed by some densitometry technique
 4. The data is plotted and interpreted
+
+
+## 2. Fundamentals of Sensitometry
+
+Photographic Sensitometry:
+> The science of measuring the sensitivity of photographic materials.
+
+Original paper written by Ferdinand Hurter and Vero Driffield titled
+*Photochemical Investigations and a New Method of Determination of the
+Sensitivities of Photographic Plates* asked the following questions:
+
+1. What is the relationship between exposure and opacity?
+2. What is "correct" exposure?
+3. How is emulsion speed expressed?
+4. What is the effect of development?
+5. How is the degree of development measured?
+6. What is "correct" development?
+
+### Concept of Density
+
+Several methods can be used to measure silver deposits of processed
+sensitometric strips it is logical to use one based on light transmission. The
+value should go **up** as deposits become darker/ light transmission reduces. It
+should also show similar differences as one perceives visually. Measuring
+**density** (the log of reciprocal light transmittance) does all this.
+
+Imagine sheet of material that allowed one tenth of light incident upon it to be
+transmitted. If we stacked two layers it would only allow one hundredth of the
+incident light to be transmitted and so on. Likewise, it would take ten and one
+hundred units of light respectively to transmit exactly one unit of light. This
+can be shown in the table below: 
+
+|Number of layers | Output from Unity Input | Input for Unity Output | Log of column three|
+|-----------------|-------------------------|------------------------|--------------------|
+| 1               | 1/10                    | 10                     | 1                  |
+| 2               | 1/100                   | 100                    | 2                  |
+| 3               | 1/1000                  | 1000                   | 3                  |
+
+Hurter and Driffield stated column one consisted of numbers proportional to the
+quantity of developed silver (per unit are) in the silver deposit. Column two is
+the **Transmission** (T) of the silver deposit (can be expressed as a decimal or
+percentage too). The third column is the reciprocal of transmission and is
+called **Opacity** (O). The fourth column is defined by Hurter and Driffield as
+**Density** (D) and is the log of opacity. We use the reciprocal of transmission
+so that density becomes larger as deposits become darker.
