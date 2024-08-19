@@ -1,3 +1,14 @@
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
 # Notes from "Principles of Colour Sensitometry"
 
 ## 1. Introduction
@@ -92,3 +103,12 @@ percentage too). The third column is the reciprocal of transmission and is
 called **Opacity** (O). The fourth column is defined by Hurter and Driffield as
 **Density** (D) and is the log of opacity. We use the reciprocal of transmission
 so that density becomes larger as deposits become darker.
+
+
+\\[\text{Factional Output} = \text{Transmission} = T\\]
+
+\\[\text{Reciprocal of Fractional Output} = \frac{1}{T} = \text{Opacity} = O\\]
+
+\\[\text{Log of Opacity} = \text{Density} = D\\]
+
+\\[D = log(\frac{1}{T})\\]
