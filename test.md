@@ -25,3 +25,5 @@ Here's a more complex formula:
 \\[\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx\\]
 
 $\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx$
+
+\\[\text{Reciprocal of Fractional Output} = \frac{1}{T} = \text{Opacity} = O\\]
