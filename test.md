@@ -22,6 +22,6 @@ formula6: \\[k!=z\\]
 
 Here's a more complex formula:
 
-\\[$\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx$\\]
+\\[\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx\\]
 
 $\text{average value} = \dfrac{1}{(b-a)} \int_a^b f(x)~dx$
