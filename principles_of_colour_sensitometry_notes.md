@@ -112,3 +112,4 @@ so that density becomes larger as deposits become darker.
 \\[\text{Log of Opacity} = \text{Density} = D\\]
 
 \\[D = log(\frac{1}{T})\\]
+
