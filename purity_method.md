@@ -45,8 +45,11 @@ the chrominance. To do that I used the following equation:
 \\[adjustedScale = \frac{1.0}{((1.0 - chroma) - 1.0) * (-1.0 * scale) + 1.0}\\]
 
 Which can be viewed [here](https://www.desmos.com/calculator/f3hl6hm4pq) where
-`x` is equal to the pixels chrominance and `y` is the adjusted scale factor. The
-first thing to note is that no matter what value of `s` is used, zero
+`x` is equal to the pixels chrominance and `y` is the adjusted scale factor.
+
+![Purity slider curve](/docs/assets/images/purity_method/purity_slider_curve.jpg "Purity slider curve")
+
+The first thing to note is that no matter what value of `s` is used, zero
 chrominance is always pegged to a scale factor of `1`, or no change. Secondly as
 chrominance increases the scale factor increases as a gently curving slope which
 should hopefully maintain existing gradients in the image to some extent. The
