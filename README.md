@@ -1,6 +1,7 @@
 # Post
 
 - ["Correct" sRGB and Rec.709 Viewing](srgb_rec709_viewing_conditions.md)
+- [Modelling film stocks in digital](film_shape.md)
 
 # Technical
 - ["Polarity Glossary"](polarity_glossary.md)
