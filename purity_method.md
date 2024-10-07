@@ -88,10 +88,15 @@ image. To do this we scale the `min` value as follows:
 A simple multiply always scales around zero and by subtracting and then re
 adding the floor value we can scale around that instead. This scaling on its
 own can cause issues around bright areas of the image, they lose a lot more
-brightness than one might want. In an attempt to get around this I have
-experimented with further limiting the amount `min` can be scaled down by some
-factor of the pixel's luminance, say the square of the luminance. This appears
-to give satisfactory results but could be further experimented with.
+brightness than one might want. In an attempt to get around this we later on
+offset the triplet back up by some proportion of the amount required to place
+`min` back at its original value. This is done right at the end of the purity
+function.
+
+```
+float min_difference = (min_original - vec_min(output));
+output = output + vec3(min_difference)*0.5;
+```
 
 In the example code I also clamp the upper limit of `min` to be `max` for when
 we use this method to reduce the purity (a scale slider value of less than zero).
