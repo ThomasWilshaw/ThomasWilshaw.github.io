@@ -121,6 +121,5 @@ floor value (either by eye or some statistical or image segmentation method)
 and use that to limit the purity increase.
 
 ## Example code
-<script src="https://gist.github.com/ThomasWilshaw/3608d3a383ba211b29c33913fcbd87cc.js"></script>
-
+Example code can be found [here](https://gist.github.com/ThomasWilshaw/3608d3a383ba211b29c33913fcbd87cc)
 
