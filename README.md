@@ -4,7 +4,7 @@
 - [Modelling film stocks in digital](/_posts/2024-05-08-film-shape.md)
 
 # Technical
-- ["Polarity Glossary"](/_posts/2024-04-29-polarity-glossary.md)
+- ["Polarity Glossary"](/_posts/2024-04-29-glossary.md)
 
 # Notes
 - ["Principles of Colour Sensitometry"](/_posts/2024-11-08-principles-of-colour-sensitometry-notes.md)
