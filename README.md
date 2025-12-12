@@ -9,9 +9,8 @@
 # Notes
 - ["Principles of Colour Sensitometry"](/_posts/2024-11-08-principles-of-colour-sensitometry-notes.md)
 
-# On Colour Sensations | Psychophysical Investigations by G. E. Müller
-- [Volume I](/on_colour_sensations/on_colour_sensations_V1_contents.md)
-- [Volume II](/on_colour_sensations/on_colour_sensations_V2_contents.md)
+# [On Colour Sensations | Psychophysical Investigations by G. E. Müller](/_posts/2025-12-12-müller-on-colour-sensations.md)
+
 
 
 <a rel="me" href="https://mastodon.art/@tmw"></a>
