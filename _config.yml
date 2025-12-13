@@ -2,6 +2,6 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 title: Thomas Wilshaw Notes
-description: Random thoughts and notes that will probably mostly be about colour. All thoughts and opinions are mine and quite possibly wrong
+description: Random thoughts and notes that will probably mostly be about colour.
 author: Thomas Wilshaw
 
