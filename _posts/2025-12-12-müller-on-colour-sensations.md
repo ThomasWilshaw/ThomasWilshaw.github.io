@@ -36,7 +36,7 @@ The Author
 
 ### Chapter 1. On the Origin of Achromatic Excitations of the Cone Apparatus
 
-#### § 1. On the P-Processes. 1-9
+#### [§ 1. On the P-Processes. 1-9](#section-on-the-p-process)
 
 - I. The Origin of the Excitatory Effects of the P-Processes. 
 - II. The Temporal Course of the Excitatory Drives Emanating from the P-Processes.
@@ -406,6 +406,8 @@ The Author
 # Part I On Achromatic Excitations
 
 ## Chapter 1 On the Origin of Achromatic Excitations of the Cone Apparatus [^part_1_chapter_1_01]
+
+<a name="section-on-the-p-process" id="section-on-the-p-process"></a>
 
 ### § 1. On the P-Processes
 
