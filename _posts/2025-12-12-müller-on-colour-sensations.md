@@ -1,11 +1,10 @@
 # On Colour Sensations
 
+## Psychophysical Investigations by G. E. Müller
+
 *This is a translation (so far done via Google Translate and very loosely proof read) of G. E. Müller's* "On Colour Sensations: Psychophysical Investigations" *, published by the German Journal of Psychology and Physiology of the Sensory Organs in 1930. It is a summary of his work on colour perception consisting of over 600 pages split across two volumes.*
 
 *As far as I am aware there is no English translation of this text available anywhere. This is an ongoing project and will take a lot of time. I started with the contents pages of the two volumes, partly to get a sense of what Müller covered and partly so anyone interested can request any specific sections be worked on first (my email/Mastodon account are available on my Github home page). Long term it would be nice to properly digitise/translate the entire book and upload it to the Internet Archive but I don't even know where to begin with that.*
-
-# Volume I
-### Psychophysical Investigations by G. E. Müller
 
 ## Preface
 
@@ -29,7 +28,9 @@ Göttingen, May 1930
 
 The Author
 
-## Table of Contents of Volume One
+---
+
+# Table of Contents of Volume One
 
 ## Part I. On Achromatic Excitations
 
@@ -242,9 +243,7 @@ The Author
 
 #### List of publications cited by author 431-434
 
-# Volume II
-
-## Table of Contents of Volume Two
+# Table of Contents of Volume Two
 
 ## Part III. On the Influence of White on Chromatic Excitation
 
@@ -399,3 +398,7 @@ The Author
 #### § 64. Remarks on the Theory Presented 644-647
 
 #### List of New or Specially Defined Terms Used 648
+
+---
+
+# Volume I
