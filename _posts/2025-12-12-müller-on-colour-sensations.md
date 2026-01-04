@@ -6,6 +6,20 @@
 
 *As far as I am aware there is no English translation of this text available anywhere. This is an ongoing project and will take a lot of time. I started with the contents pages of the two volumes, partly to get a sense of what Müller covered and partly so anyone interested can request any specific sections be worked on first (my email/Mastodon account are available on my Github home page). Long term it would be nice to properly digitise/translate the entire book and upload it to the Internet Archive but I don't even know where to begin with that.*
 
+> ## Note on Colour names and abreviations:
+>
+>  Müller often reffers to colours by their initials and of course he uses the German names for the colours. For example, very early on in the text "WS-Sense" is discussed. The German translations for black and white are Schwarz and Weiß and "WS-Sense" therefore reffers to "White/Black Sense". I decided it was going to be easier to leave these abbreviations in the original German to avoid inconsitencies. For reference a list of common colours in German is given below.
+>
+> | English | German | Abreiation |
+> |---------|--------|------------|
+> | White   | Weiß   | W          |
+> | Black   | Schwarz| S          |
+> | Red     | Rot    | R          |
+> | Green   | Grün   | G          |
+> | Blue    | Blau   | B          |
+> | Yellow  | Gelb   | E (I believe yellow is abbreviated to E to avoid confusion with green) |
+
+
 ## Preface
 
 After numerous transformations and adaptations to emerging new facts, I have finally brought to a certain conclusion my efforts, originally based on Hering's views and now about 50 years old, to construct the most comprehensive and consistent theory of color perception possible. There is, however, no shortage of so-called theories of color perception. Troland occasionally gives their number as 60. The process of theory formation was usually as follows: The author would have a new idea, or at least one that appeared new to him, concerning the theory of color perception. He would then think of several facts—about 6 to 12, sometimes fewer—from this extraordinarily rich field of phenomena that seemed to agree with the emerging idea, and the theory was complete In contrast to this somewhat childish view of the nature and tasks of scientific theory formation, I present in this work theoretical views which, as the presentation should make clear, are based on a careful theoretical consideration of all the essential results of all relevant experimental investigations available to me and accordingly contribute incomparably more to the explanation of phenomena than the theories put forward thus far. I have, of course, not concealed the facts for whose explanation the theory still requires completion (cf. § 19 and § 34, IV). A general characterization of the presented theory can be found in § 64.
